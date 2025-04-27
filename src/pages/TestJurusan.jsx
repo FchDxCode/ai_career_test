@@ -1,6 +1,6 @@
 // src/pages/TestJurusan.jsx
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import ProgressHeader from '../components/ProgressHeader';
@@ -16,6 +16,14 @@ export default function TestJurusan() {
     research: 0, communication: 0, creative: 0
   });
   const [discoveredPaths, setDiscoveredPaths] = useState([]);
+  
+  // Validasi apakah questions_jurusan tersedia dan tidak kosong
+  useEffect(() => {
+    if (!questions_jurusan || questions_jurusan.length === 0) {
+      toast.error('Data pertanyaan tidak tersedia');
+      navigate('/');
+    }
+  }, [navigate]);
 
   const handleNext = (answer) => {
     setAnswers(prev => ({ ...prev, [currentStep]: answer }));
@@ -47,12 +55,47 @@ export default function TestJurusan() {
       ];
       toast.success(messages[Math.floor(Math.random() * messages.length)]);
     } else {
-      toast.loading('AI sedang menganalisis jurusan yang cocok untukmu...');
+      // Tampilkan loading
+      toast.loading('AI sedang menganalisis jurusan yang cocok untukmu...', {
+        id: 'analysis-loading' // Berikan ID untuk bisa dihapus nanti
+      });
+      
+      // Buat copy dari data untuk mencegah race condition
+      const finalAnswers = {...answers, [currentStep]: answer};
+      const finalTraits = {...jurusanTraits};
+      finalTraits[answer] = (finalTraits[answer] || 0) + 1;
+      
+      // Kita gunakan timeout untuk memastikan state sudah terupdate
+      // dan toast sudah muncul sebelum navigasi
       setTimeout(() => {
-        navigate('/results-jurusan', { state: { answers } });
-      }, 2000);
+        navigate('/results-jurusan', { 
+          state: { 
+            answers: finalAnswers,
+            traits: finalTraits
+          } 
+        });
+      }, 100);
     }
   };
+
+  // Pastikan pertanyaan tersedia sebelum render
+  if (!questions_jurusan || questions_jurusan.length === 0 || !questions_jurusan[currentStep]) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4 flex items-center justify-center">
+        <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+          <div className="text-4xl mb-4">⚠️</div>
+          <h2 className="text-2xl font-bold mb-4">Data Tidak Tersedia</h2>
+          <p className="text-gray-600 mb-6">Maaf, data pertanyaan tidak dapat dimuat</p>
+          <button
+            onClick={() => navigate('/')}
+            className="px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-all"
+          >
+            Kembali ke Home
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-12 px-4">

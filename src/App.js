@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import TestKarir from './pages/TestKarir';
 import TestJurusan from './pages/TestJurusan';
 import Results from './pages/ResultsCareer';
+import ResultsJurusan from './pages/ResultsJurusan';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -17,7 +18,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/test-karir" element={<TestKarir />} />
             <Route path="/test-jurusan" element={<TestJurusan />} />            
-            <Route path="/results" element={<Results />} />
+            <Route path="/results-karir" element={<Results />} />
+            <Route path="/results-jurusan" element={<ResultsJurusan />} />
           </Routes>
         </main>
       </div>
