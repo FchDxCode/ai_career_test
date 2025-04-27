@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
-import CareerCompass from './CareerCompass';
+import JurusanCompass from './JurusanCompass';
 
-export default function ProgressHeader({ currentStep, total, discoveredPaths, careerTraits }) {
+export default function ProgressJurusan({ currentStep, total, discoveredPaths, careerTraits }) {
+  // Fungsi untuk menampilkan emoji berdasarkan progress
   const getEmoji = () => {
     const p = (currentStep / total) * 100;
     return p < 33 ? '🌱' : p < 66 ? '🌿' : p < 99 ? '🌲' : '🌳';
@@ -32,7 +33,7 @@ export default function ProgressHeader({ currentStep, total, discoveredPaths, ca
             >{getEmoji()}</motion.span>
           </div>
           <div>
-            <h3 className="font-bold text-xl text-blue-800">Petualangan Karir</h3>
+            <h3 className="font-bold text-xl text-blue-800">Petualangan Jurusan</h3>
             <div className="flex items-center gap-2 mt-1">
               <div className="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-medium">
                 Level {currentStep + 1}
@@ -45,7 +46,7 @@ export default function ProgressHeader({ currentStep, total, discoveredPaths, ca
         {/* Bagian kanan: Jalur karir yang ditemukan */}
         {discoveredPaths.length > 0 && (
           <div className="w-full sm:w-auto">
-            <p className="text-xs text-blue-700 font-medium mb-2">Jalur Karir Ditemukan:</p>
+            <p className="text-xs text-blue-700 font-medium mb-2">Jurusan Ditemukan:</p>
             <div className="flex flex-wrap gap-2">
               {discoveredPaths.map((path, i) => (
                 <motion.div
@@ -81,7 +82,7 @@ export default function ProgressHeader({ currentStep, total, discoveredPaths, ca
       
       {/* Komponen CareerCompass dengan background yang lebih kontras */}
       <div className="bg-white p-4 rounded-xl shadow-sm relative z-10">
-        <CareerCompass traits={careerTraits} />
+        <JurusanCompass traits={careerTraits} />
       </div>
     </motion.div>
   );
