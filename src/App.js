@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Home from './pages/Home';
 import TestKarir from './pages/TestKarir';
+import TestJurusan from './pages/TestJurusan';
+import Results from './pages/ResultsCareer';
 import { Toaster } from 'react-hot-toast';
 
 function App() {
@@ -14,8 +16,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/test-karir" element={<TestKarir />} />
-            {/* <Route path="/results" element={<Results />} />
-            <Route path="/explore" element={<Explore />} /> */}
+            <Route path="/test-jurusan" element={<TestJurusan />} />            
+            <Route path="/results" element={<Results />} />
           </Routes>
         </main>
       </div>
