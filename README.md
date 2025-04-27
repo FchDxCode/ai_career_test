@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/a77e12e9-9cdb-4978-a3ec-51f34cfeb6b0)# CareerAI 🎯
+# CareerAI 🎯
 
 CareerAI adalah aplikasi berbasis React yang membantu siswa dan pengguna untuk mendapatkan rekomendasi karir dan jurusan berdasarkan jawaban mereka terhadap berbagai pertanyaan interaktif.
 
