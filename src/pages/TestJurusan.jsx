@@ -111,7 +111,7 @@ export default function TestJurusan() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-50 py-12 px-4 relative overflow-hidden pt-10 md:pt-32">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-50 py-12 px-4 relative overflow-hidden pt-24 md:pt-32">
       {/* Elemen dekoratif background */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-blue-100 to-transparent opacity-70"></div>
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-indigo-100 rounded-full -mb-32 -mr-32 opacity-50"></div>

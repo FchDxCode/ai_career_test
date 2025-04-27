@@ -635,7 +635,7 @@ export default function ResultsKarir() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-50 py-12 px-4 pt-10 md:pt-32">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-indigo-50 py-12 px-4 pt-24 md:pt-32">
       <div className="max-w-4xl mx-auto space-y-6">
         {/* Header dan Navigation */}
         <motion.div

@@ -16,16 +16,16 @@ function App() {
   const [loading, setLoading] = useState(true);
   
   // Cek apakah splash screen sudah pernah ditampilkan dalam sesi ini
-  useEffect(() => {
-    const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
+  // useEffect(() => {
+  //   const hasSeenSplash = sessionStorage.getItem('hasSeenSplash');
     
-    if (hasSeenSplash) {
-      setLoading(false);
-    } else {
-      // Jika belum pernah lihat splash, simpan di sessionStorage
-      sessionStorage.setItem('hasSeenSplash', 'true');
-    }
-  }, []);
+  //   if (hasSeenSplash) {
+  //     setLoading(false);
+  //   } else {
+  //     // Jika belum pernah lihat splash, simpan di sessionStorage
+  //     sessionStorage.setItem('hasSeenSplash', 'true');
+  //   }
+  // }, []);
   
   const handleSplashComplete = () => {
     setLoading(false);
