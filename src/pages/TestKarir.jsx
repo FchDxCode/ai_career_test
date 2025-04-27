@@ -45,7 +45,7 @@ export default function TestKarir() {
     } else {
       toast.loading('AI sedang menganalisis jawabanmu...');
       setTimeout(() => {
-        navigate('/results', { state: { answers } });
+        navigate('/results-karir', { state: { answers } });
       }, 2000);
     }
   };
