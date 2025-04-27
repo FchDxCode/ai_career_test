@@ -21,4 +21,8 @@ CareerAI adalah aplikasi berbasis React yang membantu siswa dan pengguna untuk m
 - **DnD Kit** (`@dnd-kit/core`, `@dnd-kit/sortable`)
 - **RC-Slider**
 - **React Hot Toast**
+<<<<<<< HEAD
 - **Canvas Confetti**
+=======
+- **Canvas Confetti**
+>>>>>>> f44f6fe8a3d1679062f7f82484d0f802b22f607a
